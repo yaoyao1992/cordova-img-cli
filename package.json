@@ -1,0 +1,16 @@
+{
+  "name": "cordova-img-cli",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "cordova-img": "bin/cordova-img"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "image-size": "^0.5.0",
+    "sharp": "^0.15.1",
+    "yargs": "^4.8.1"
+  }
+}

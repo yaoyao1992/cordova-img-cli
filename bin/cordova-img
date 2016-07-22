@@ -1,0 +1,41 @@
+#! /usr/bin/env node
+
+var path = require('path'),
+    argv = require('yargs').argv,
+    cliContext = require(path.resolve(__dirname, '..','dist','context.js')),
+    message=require(path.resolve(__dirname, '..','dist', 'message.js')),
+    needHelp,
+    cmd,
+    command,
+    context;
+
+						
+needHelp=argv.help;
+cmd=argv._[0];
+
+if(needHelp){
+
+	console.log(message.help);	
+	process.exit(0);
+
+}    
+
+
+switch(cmd){
+	case "iosIcon": 
+	case "iosPage": 
+	case "androidIcon": 
+	case "androidPage":
+	var command = require(path.resolve(__dirname, '..', 'dist', cmd + '.js')),
+    context =  cliContext.context(argv);
+    command.execute(context);
+	break;
+	default:
+		console.log(message.defaults);
+		process.exit(0);
+}
+
+
+
+
+
